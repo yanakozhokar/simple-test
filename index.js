@@ -1,14 +1,10 @@
-class Some {
-  method = () => {
-    console.log("this is an arrow => ", this);
+function getCounter() {
+  let counter = 0;
+  return function () {
+    return counter++;
   };
-
-  meth() {
-    console.log("this is a function => ", this);
-  }
 }
-
-const temp = new Some();
-
-temp.meth();
-temp.method();
+let count = getCounter();
+console.log(count()); // 0
+console.log(count()); // 1
+console.log(count()); // 3
